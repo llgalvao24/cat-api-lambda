@@ -28,6 +28,18 @@ Resources:
           Properties:
             Path: "/"
             Method: Any
+      Policies:
+        - AmazonDynamoDBFullAccess
+        - AWSLambdaVPCAccessExecutionRole
+        - Version: "2012-10-17"
+          Statement:
+            - Effect: Allow
+              Action:
+                - dynamodb:*
+              Resource:
+                {
+                  "Fn::Sub": "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/breed"
+                }
 
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
