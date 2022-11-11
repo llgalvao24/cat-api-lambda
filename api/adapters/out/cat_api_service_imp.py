@@ -17,7 +17,7 @@ class CatApiServiceImp(CatApiService):
         return cls(session=session)
 
     def fetch_breeds(self) -> dict:
-        url = "https://api.thecatapi.com/v1/breeds"
+        url = "https://api.thecatapi.com/v1/breeds?limit=10&page=0"
         headers = {
             "x-api-key": "live_X3z9DesKKCqSdk6nKCIt0pjNT5ScwJlAXZwC9Tpr4VOBODxLutVa4RKWy0XfbYZC"
         }

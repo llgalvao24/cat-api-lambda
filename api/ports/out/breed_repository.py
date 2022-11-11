@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from model.breed import BreedModel
+from models.breed import BreedModel
 
 
 class BreedRepository(ABC):

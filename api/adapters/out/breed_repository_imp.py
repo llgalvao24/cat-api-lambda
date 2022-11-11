@@ -4,7 +4,7 @@ import logging
 import boto3
 
 from ports.out.breed_repository import BreedRepository
-from ports.out.model.breed import BreedModel
+from models.breed import BreedModel
 
 if TYPE_CHECKING:
     from mypy_boto3_dynamodb.service_resource import Table
