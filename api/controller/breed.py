@@ -2,7 +2,7 @@ from fastapi import APIRouter
 import boto3
 from uuid import uuid4
 from service.cat_api import fetch_breeds
-from model.breed import BreedModel
+from ports.out.model import BreedModel
 
 router = APIRouter()
 dynamo_resource = boto3.resource('dynamodb')
