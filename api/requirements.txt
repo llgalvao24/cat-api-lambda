@@ -2,3 +2,4 @@ requests
 fastapi
 mangum
 boto3
+mypy-boto3-dynamodb
