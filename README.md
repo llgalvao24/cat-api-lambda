@@ -1,4 +1,5 @@
-# cat-api-lambda
+<h1 align="center">cat-api-lambda</h1>
+<p align="center">Test case using AWS technologies</p>
 
 <p align="center">
   <p align="center">Table of Contents</p>
@@ -37,11 +38,12 @@ The AWS Toolkit is an open source plug-in for popular IDEs that uses the SAM CLI
 
 The application uses:
 
-- AWS resources: Lambda functions, API Gateway API, DynamoDB, CloudWatch (these resources are defined in the `template.yaml` file in this project).
+- AWS resources: **Lambda functions**, **API Gateway API**, **DynamoDB**, **CloudWatch**.
 - Python 3.8
 - FastAPI
 - Requests
 - Pytest
+- GitHub Actions
 
 These technologies were chosen based on the following requirements
 
@@ -61,10 +63,10 @@ These technologies were chosen based on the following requirements
 
 Before we begin, you need to have few things installed:
 
-[AWS CLI](https://aws.amazon.com/cli/)
-[SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html)
-[Docker](https://hub.docker.com/search/?type=edition&offering=community)
-[Python 3.8](https://www.python.org/downloads/release/python-3815/)
+- [AWS CLI](https://aws.amazon.com/cli/)
+- [SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html)
+- [Docker](https://hub.docker.com/search/?type=edition&offering=community)
+- [Python 3.8](https://www.python.org/downloads/release/python-3815/)
 
 First, we need to build the application:
 
