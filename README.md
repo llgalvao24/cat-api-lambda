@@ -1,20 +1,19 @@
 # cat-api-lambda
 
-## TABLE OF CONTENTS
-
 <p align="center">
+  <p align="center">Table of Contents</p>
   <p align="center">
-    <a href="#:open_book:-about">:open_book: About</a> |
-    <a href="#:hammer_and_wrench:-technologies">:hammer_and_wrench: Technologies</a> | 
-    <a href="#:checkered_flag:-getting-started">:checkered_flag: Getting Started</a> | 
-    <a href="#:world_map:-api-documentation">:world_map: API Documentation</a> | 
-    <a href="#:building_construction:-architecture">:building_construction: Architecture</a> |
+    <a href="#open_book-about">:open_book: About</a> |
+    <a href="#hammer_and_wrench-technologies">:hammer_and_wrench: Technologies</a> | 
+    <a href="#checkered_flag-getting-started">:checkered_flag: Getting Started</a> | 
+    <a href="#world_map-api-documentation">:world_map: API Documentation</a> | 
+    <a href="#building_construction-architecture">:building_construction: Architecture</a> |
   </p>
   <p align="center"> 
-    <a href="#:rocket:-deploy">:rocket: Deploy</a> |
-    <a href="#:pencil:-logs">:pencil: Logs</a> |
-    <a href="#:test_tube:-unit-tests">:test_tube: Unit tests</a> |
-    <a href="#:books:-references">:books: References</a>
+    <a href="#rocket-deploy">:rocket: Deploy</a> |
+    <a href="#pencil-logs">:pencil: Logs</a> |
+    <a href="#test_tube-unit-tests">:test_tube: Unit tests</a> |
+    <a href="#books-references">:books: References</a>
   </p>
 </p>
 
