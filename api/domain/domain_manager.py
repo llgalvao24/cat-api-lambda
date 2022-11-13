@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, List
 from uuid import uuid4
 import logging
 
@@ -21,7 +21,10 @@ class DomainManager:
     def fetch_breeds(self) -> dict:
         return self.cat_api_service.fetch_breeds()
 
-    def get_all_breeds(self) -> dict:
+    def get_breed_by_id(self, breed_id: str) -> dict:
+        return self.breed_repository.get_by_id(breed_id)
+
+    def get_all_breeds(self) -> List[dict]:
         return self.breed_repository.get_all()
 
     def fetch_and_save_breeds(self) -> dict:

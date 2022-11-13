@@ -16,6 +16,11 @@ def fetch_breeds():
     return domain_mgr.fetch_breeds()
 
 
+@router.get("/api/breeds/{breed_id}")
+def get_breed_by_id(breed_id: str):
+    return domain_mgr.get_breed_by_id(breed_id)
+
+
 @router.get("/api/breeds")
 def get_all_breeds():
     return domain_mgr.get_all_breeds()
