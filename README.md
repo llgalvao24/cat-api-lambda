@@ -117,7 +117,9 @@ Hexagonal architecture is also known as the ports and adapters architecture. It 
 - Adapters: A design pattern for transforming one interface into another interface. They wrap the logic for interacting with a primary or secondary actor.
 - Primary actors: Users of the system such as a webhook, a UI request, or a test script. Secondary actors: used by the application, these services are either a Repository (for example, a database) or a Recipient (such as a message queue).
 
-![alt text](hex-arc.png)
+<p align="center">
+  <img src="hex-arc.png">
+</p>
 
 1. A client makes a request to the API Gateway endpoint (e.g. /api/fetch-save/breeds), which invokes the Lambda function.
 2. The primary adapter receives the request. I calls the port.
