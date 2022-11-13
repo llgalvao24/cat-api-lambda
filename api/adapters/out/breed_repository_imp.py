@@ -23,6 +23,16 @@ class BreedRepositoryImp(BreedRepository):
         table = dynamo_resource.Table('breed')
         return cls(table=table)
 
+    def get_all(self) -> dict:
+        try:
+            resp = self.table.scan()
+            logger.info("Breeds fetched successfully")
+            print("all set, this test")
+            return {"breeds": resp['Items']}
+        except Exception as e:
+            logger.error(e)
+            return {"message": "Breeds fetch failed"}
+
     def save(self, breed: BreedModel) -> dict:
         try:
             resp = self.table.put_item(Item=breed)
