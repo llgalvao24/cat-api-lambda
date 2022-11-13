@@ -1,16 +1,21 @@
 # cat-api-lambda
 
-<p align="center">TABLE OF CONTENTS</p>
+## TABLE OF CONTENTS
+
 <p align="center">
- <a href="#about">:open_book: About</a> •
- <a href="#technologies">:hammer_and_wrench: Technologies</a> • 
- <a href="#getting-started">:checkered_flag: Getting Started</a> • 
- <a href="#api-documentation">:world_map: API Documentation</a> • 
- <a href="#architecture">:building_construction: Architecture</a> •
- <a href="deploy">:rocket: Deploy</a> •
- <a href="logs">:pencil: Logs</a> •
- <a href="#unit-tests">:test_tube: Unit tests</a> •
- <a href="#references">:books: References</a>
+  <p align="center">
+    <a href="#:open_book:-about">:open_book: About</a> |
+    <a href="#:hammer_and_wrench:-technologies">:hammer_and_wrench: Technologies</a> | 
+    <a href="#:checkered_flag:-getting-started">:checkered_flag: Getting Started</a> | 
+    <a href="#:world_map:-api-documentation">:world_map: API Documentation</a> | 
+    <a href="#:building_construction:-architecture">:building_construction: Architecture</a> |
+  </p>
+  <p align="center"> 
+    <a href="#:rocket:-deploy">:rocket: Deploy</a> |
+    <a href="#:pencil:-logs">:pencil: Logs</a> |
+    <a href="#:test_tube:-unit-tests">:test_tube: Unit tests</a> |
+    <a href="#:books:-references">:books: References</a>
+  </p>
 </p>
 
 ## :open_book: About
