@@ -8,14 +8,18 @@ from ports.out.breed_repository import BreedRepository
 
 class DomainManager:
     def __init__(
-        self, breed_repository: Optional[BreedRepository] = None,
-        cat_api_service: Optional[CatApiService] = None
+        self,
+        cat_api_service: Optional[CatApiService] = None,
+        breed_repository: Optional[BreedRepository] = None
     ) -> None:
         self.breed_repository = breed_repository
         self.cat_api_service = cat_api_service
 
     def fetch_breeds(self) -> dict:
         return self.cat_api_service.fetch_breeds()
+
+    def get_all_breeds(self) -> dict:
+        return self.breed_repository.get_all()
 
     def fetch_and_save_breeds(self) -> dict:
         breeds = self.cat_api_service.fetch_breeds()
