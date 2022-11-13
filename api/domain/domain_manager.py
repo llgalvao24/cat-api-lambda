@@ -1,9 +1,12 @@
 from typing import Optional
 from uuid import uuid4
+import logging
 
 from models.breed import BreedModel
 from ports.out.cat_api_service import CatApiService
 from ports.out.breed_repository import BreedRepository
+
+logger = logging.getLogger()
 
 
 class DomainManager:
@@ -22,15 +25,19 @@ class DomainManager:
         return self.breed_repository.get_all()
 
     def fetch_and_save_breeds(self) -> dict:
-        breeds = self.cat_api_service.fetch_breeds()
-        for breed in breeds:
-            breedModel = BreedModel(
-                breed_id=str(uuid4()),
-                name=breed.name,
-                description=breed.description,
-                life_span=breed.life_span,
-                temperament=breed.temperament,
-                origin=breed.origin
-            )
-            self.breed_repository.save(breedModel)
-        return breeds
+        try:
+            breeds = self.cat_api_service.fetch_breeds()
+            for breed in breeds:
+                breedModel = BreedModel(
+                    breed_id=str(uuid4()),
+                    name=breed["name"],
+                    description=breed["description"],
+                    life_span=breed["life_span"],
+                    temperament=breed["temperament"],
+                    origin=breed["origin"]
+                )
+                self.breed_repository.save(breedModel.dict())
+            return {"message": "Breeds fetched and saved successfully"}
+        except Exception as e:
+            logger.error(e)
+            return {"message": "Breeds fetch and save failed"}
