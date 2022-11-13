@@ -55,10 +55,10 @@ def apigw_event():
             "CloudFront-Forwarded-Proto": "https",
             "Accept-Encoding": "gzip, deflate, sdch",
         },
-        "pathParameters": {"proxy": "/examplepath"},
-        "httpMethod": "POST",
+        "pathParameters": {"proxy": "/"},
+        "httpMethod": "GET",
         "stageVariables": {"baz": "qux"},
-        "path": "/examplepath",
+        "path": "/",
     }
 
 
@@ -68,5 +68,5 @@ def test_lambda_handler(apigw_event):
     data = json.loads(ret["body"])
 
     assert ret["statusCode"] == 200
-    assert "message" in ret["body"]
-    assert data["message"] == "hello world"
+    assert "ok" in ret["body"]
+    assert data["ok"] == True
