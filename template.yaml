@@ -8,7 +8,7 @@ Description: >
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
   Function:
-    Timeout: 3
+    Timeout: 10
 
 Resources:
   CatApiTestFunction:
@@ -47,7 +47,7 @@ Outputs:
   # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
   CatApiApi:
     Description: "API Gateway endpoint URL for Prod stage for CatApi function"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
   CatApiTestFunction:
     Description: "CatApi Lambda Function ARN"
     Value: !GetAtt CatApiTestFunction.Arn
