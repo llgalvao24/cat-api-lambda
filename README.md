@@ -71,7 +71,7 @@ Before we begin, you need to have few things installed:
 First, we need to build the application:
 
 ```bash
-cat-api-lambda$ sam build
+cat-api-lambda$ sam build --use-container
 ```
 
 After that, we need to build the docker containing DynamoDB (Make sure Docker Desktop is running)
@@ -80,10 +80,10 @@ After that, we need to build the docker containing DynamoDB (Make sure Docker De
 cat-api-lambda$ docker-compose up -d
 ```
 
-Finally,
+Then, we start the api with the following params (you may need to config aws_credentials)
 
 ```bash
-cat-api-lambda$ sam local start-api
+cat-api-lambda$ sam local start-api --docker-network local-dynamodb --skip-pull-image --profile default --parameter-overrides 'ParameterKey=StageName,ParameterValue=local'
 cat-api-lambda$ curl http://localhost:3000/
 ```
 
@@ -107,6 +107,12 @@ You should get a response like:
 ```
 
 (It may take a while depending on your local machine configurations)
+
+Finally, we create the table **breed**:
+
+```bash
+cat-api-lambda$ aws dynamodb create-table --cli-input-json file://create-local-db.json --endpoint-url http://localhost:8000
+```
 
 ## :world_map: API Documentation
 
