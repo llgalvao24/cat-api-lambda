@@ -123,18 +123,21 @@ Hexagonal architecture is also known as the ports and adapters architecture. It 
   <img src="hex-arc.png">
 </p>
 
-1. A client makes a request to the API Gateway endpoint (e.g. /api/fetch-save/breeds), which invokes the Lambda function.
-2. The primary adapter receives the request. I calls the port.
-3. The port is an interface for communicating with the domain logic. It enforces the separation between an adapter and the domain logic. With this approach, you can change and test the infrastructure and domain logic in isolation without impacting another part of the code base.
-4. The port calls the logic entry point. The domain requests the breeds data from the cat-api. Then it saves the breeds data values to the DynamoDB table. The domain logic always uses a port to interact with an adapter because the ports are the interfaces with the external world.
+1- A client makes a request to the API Gateway endpoint (e.g. /api/fetch-save/breeds), which invokes the Lambda function.
 
-1a. The domain logic uses the Repository port for interacting with the database. There is not a direct connection between the domain and the adapter.
+2- The primary adapter receives the request. I calls the port.
 
-2a. The secondary adapter encapsulates the logic for reading an item from a DynamoDB table. All the logic for interacting with DynamoDB is encapsulated in this module.
+3- The port is an interface for communicating with the domain logic. It enforces the separation between an adapter and the domain logic. With this approach, you can change and test the infrastructure and domain logic in isolation without impacting another part of the code base.
 
-1b. The second operation in the business logic is retrieving the cat breeds. The domain logic requests the operation via a port that proxies the request to the adapter:
+4- The port calls the logic entry point. The domain requests the breeds data from the cat-api. Then it saves the breeds data values to the DynamoDB table. The domain logic always uses a port to interact with an adapter because the ports are the interfaces with the external world.
 
-2b. The cat-api service adapter fetches the data from a third-party endpoint and returns the result to the domain logic.
+1a- The domain logic uses the Repository port for interacting with the database. There is not a direct connection between the domain and the adapter.
+
+2a- The secondary adapter encapsulates the logic for reading an item from a DynamoDB table. All the logic for interacting with DynamoDB is encapsulated in this module.
+
+1b- The second operation in the business logic is retrieving the cat breeds. The domain logic requests the operation via a port that proxies the request to the adapter:
+
+2b- The cat-api service adapter fetches the data from a third-party endpoint and returns the result to the domain logic.
 
 ## :rocket: Deploy
 
