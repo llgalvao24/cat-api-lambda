@@ -47,3 +47,6 @@ class DomainManager:
 
     def update_breed(self, breed_id: str, breed: dict) -> dict:
         return self.breed_repository.update(breed_id, breed)
+
+    def delete_breed_by_id(self, breed_id: str) -> dict:
+        return self.breed_repository.delete_by_id(breed_id)

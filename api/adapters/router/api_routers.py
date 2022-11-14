@@ -36,3 +36,8 @@ def fetch_and_save_breeds():
 def update_breed(breed_id: str, breed: BreedModel):
     update_breed = breed.dict(exclude_unset=True)
     return domain_mgr.update_breed(breed_id, update_breed)
+
+
+@router.delete("/api/breeds/{breed_id}")
+def delete_breed_by_id(breed_id: str):
+    return domain_mgr.delete_breed_by_id(breed_id)
