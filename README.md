@@ -128,6 +128,10 @@ cat-api-lambda$ aws dynamodb create-table --cli-input-json file://create-local-d
 | PATCH | /api/breeds/{breed_id} | breed_name, description, life_span, temperament, origin | updates a field |
 | DELETE | /api/breeds/{breed_id} | - | deletes a breed by id |
 
+The db in production conatins two breed_ids to test:
+- ***90931c59-8180-4d21-9c53-450358c99d37***
+- ***128a6907-bbcb-4c2a-95fc-5c78d625ab4f***
+
 ## :building_construction: Architecture
 
 Hexagonal architecture is also known as the ports and adapters architecture. It is an architectural pattern used for encapsulating domain logic and decoupling it from other implementation details, such as infrastructure or client requests.
