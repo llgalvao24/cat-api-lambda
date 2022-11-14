@@ -19,3 +19,7 @@ class BreedRepository(ABC):
     @abstractmethod
     def update(self, breed_id: str, breed: dict) -> dict:
         raise NotImplementedError("Method update not implemented")
+
+    @abstractmethod
+    def delete_by_id(self, breed_id: str) -> dict:
+        raise NotImplementedError("Method delete not implemented")

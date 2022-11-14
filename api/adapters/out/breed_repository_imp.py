@@ -83,3 +83,13 @@ class BreedRepositoryImp(BreedRepository):
         except Exception as e:
             logger.error(e)
             return {"message": "Breed update failed"}
+
+    def delete_by_id(self, breed_id: str) -> dict:
+        try:
+            resp = self.table.delete_item(Key={'breed_id': breed_id})
+            logger.info("Breed deleted successfully")
+            return {"message": "Breed deleted successfully",
+                    "status": resp['ResponseMetadata']['HTTPStatusCode']}
+        except Exception as e:
+            logger.error(e)
+            return {"message": "Breed deletion failed"}
