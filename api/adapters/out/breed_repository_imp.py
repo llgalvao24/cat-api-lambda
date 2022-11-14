@@ -2,18 +2,14 @@ from __future__ import annotations
 from typing import TYPE_CHECKING, Optional, List
 import logging
 import boto3
-from cloudwatch import cloudwatch
 
 from ports.out.breed_repository import BreedRepository
-from models.breed import BreedModel
 
 if TYPE_CHECKING:
     from mypy_boto3_dynamodb.service_resource import Table
 
 dynamodb_client = boto3.client('dynamodb')
 logger = logging.getLogger()
-handler = cloudwatch.CloudwatchHandler(log_group='repo_log')
-logger.addHandler(handler)
 
 
 def values_to_update(breed: dict):
