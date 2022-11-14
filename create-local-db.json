@@ -1,0 +1,13 @@
+{
+  "TableName": "breed",
+  "KeySchema": [
+    { "AttributeName": "breed_id", "KeyType": "HASH" }
+  ],
+  "AttributeDefinitions": [
+    { "AttributeName": "breed_id", "AttributeType": "S" }
+  ],
+  "ProvisionedThroughput": {
+    "ReadCapacityUnits": 2,
+    "WriteCapacityUnits": 2
+  }
+}
