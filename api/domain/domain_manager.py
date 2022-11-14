@@ -33,7 +33,7 @@ class DomainManager:
             for breed in breeds:
                 breedModel = BreedModel(
                     breed_id=str(uuid4()),
-                    name=breed["name"],
+                    breed_name=breed["name"],
                     description=breed["description"],
                     life_span=breed["life_span"],
                     temperament=breed["temperament"],
@@ -44,3 +44,6 @@ class DomainManager:
         except Exception as e:
             logger.error(e)
             return {"message": "Breeds fetch and save failed"}
+
+    def update_breed(self, breed_id: str, breed: dict) -> dict:
+        return self.breed_repository.update(breed_id, breed)
