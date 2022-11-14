@@ -110,6 +110,9 @@ You should get a response like:
 
 ## :world_map: API Documentation
 
+#### prod url: https://j3u8hj1azh.execute-api.us-east-2.amazonaws.com/Prod/
+#### local url: http://localhost:3000/
+
 | HTTP Verbs | Endpoints | Body | Action |
 | --- | --- | --- | --- |
 | GET | / | - | ping to check if the serve is up |
