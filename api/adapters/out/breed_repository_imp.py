@@ -14,6 +14,17 @@ logger = logging.getLogger()
 # logger.setLevel(logging.ERROR)
 
 
+def values_to_update(breed: dict):
+    expression_attribute_values = {}
+    update_expression_values = []
+    for key in ['breed_name', 'description', 'life_span', 'temperament', 'origin']:
+        if key in breed:
+            expression_attribute_values[f':{key[0]}'] = breed[key]
+            update_expression_values.append(f'{key} = :{key[0]}')
+
+    return expression_attribute_values, update_expression_values
+
+
 class BreedRepositoryImp(BreedRepository):
     def __init__(self, table: Optional[Table] = None) -> None:
         self.table = table
@@ -24,7 +35,7 @@ class BreedRepositoryImp(BreedRepository):
         table = dynamo_resource.Table('breed')
         return cls(table=table)
 
-    def get_by_id(self, breed_id) -> dict:
+    def get_by_id(self, breed_id: str) -> dict:
         try:
             resp = self.table.get_item(Key={'breed_id': breed_id})
             logger.info("Breed fetched successfully")
@@ -40,13 +51,12 @@ class BreedRepositoryImp(BreedRepository):
         try:
             resp = self.table.scan()
             logger.info("Breeds fetched successfully")
-            print("all set, this test")
             return {"breeds": resp['Items']}
         except Exception as e:
             logger.error(e)
             return {"message": "Breeds fetch failed"}
 
-    def save(self, breed: BreedModel) -> dict:
+    def save(self, breed: dict) -> dict:
         try:
             resp = self.table.put_item(Item=breed)
             logger.info("Breed saved successfully")
@@ -55,3 +65,21 @@ class BreedRepositoryImp(BreedRepository):
         except Exception as e:
             logger.error(e)
             return {"message": "Breed creation failed"}
+
+    def update(self, breed_id: str, breed: dict) -> dict:
+        expression_attribute_values, update_expression_values = values_to_update(
+            breed)
+
+        try:
+            resp = self.table.update_item(
+                Key={'breed_id': breed_id},
+                UpdateExpression='set ' + ','.join(update_expression_values),
+                ExpressionAttributeValues=expression_attribute_values,
+                ReturnValues="UPDATED_NEW"
+            )
+            logger.info("Breed updated successfully")
+            return {"message": "Breed updated successfully",
+                    "status": resp['ResponseMetadata']['HTTPStatusCode']}
+        except Exception as e:
+            logger.error(e)
+            return {"message": "Breed update failed"}

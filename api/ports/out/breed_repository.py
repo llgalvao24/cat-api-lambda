@@ -5,7 +5,7 @@ from models.breed import BreedModel
 
 class BreedRepository(ABC):
     @abstractmethod
-    def get_by_id(self) -> dict:
+    def get_by_id(self, breed_id: str) -> dict:
         raise NotImplementedError("Method get not implemented")
 
     @abstractmethod
@@ -13,5 +13,9 @@ class BreedRepository(ABC):
         raise NotImplementedError("Method get_all not implemented")
 
     @abstractmethod
-    def save(self, breed: BreedModel) -> dict:
+    def save(self, breed: dict) -> dict:
         raise NotImplementedError("Method save not implemented")
+
+    @abstractmethod
+    def update(self, breed_id: str, breed: dict) -> dict:
+        raise NotImplementedError("Method update not implemented")
