@@ -1,10 +1,11 @@
+from typing import Optional
 from pydantic import BaseModel
 
 
 class BreedModel(BaseModel):
-    breed_id: str
-    name: str
-    description: str
-    life_span: str
-    temperament: str
-    origin: str
+    breed_id: Optional[str]
+    breed_name: Optional[str]
+    description: Optional[str]
+    life_span: Optional[str]
+    temperament: Optional[str]
+    origin: Optional[str]
