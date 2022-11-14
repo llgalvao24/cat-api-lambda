@@ -110,6 +110,15 @@ You should get a response like:
 
 ## :world_map: API Documentation
 
+| HTTP Verbs | Endpoints | Body | Action |
+| --- | --- | --- | --- |
+| GET | / | - | ping to check if the serve is up |
+| GET | /cat-api/breeds | - | direct call to the cat api - returns the first 10 breeds |
+| GET | /api/breeds/{breed_id} | - | get breed by id |
+| GET | /api/breeds/fetch/save | - | fetches the cat api and saves the firts 10 breeds in the dynamodb |
+| PATCH | /api/breeds/{breed_id} | breed_name, description, life_span, temperament, origin | updates a field |
+| DELETE | /api/breeds/{breed_id} | - | deletes a breed by id |
+
 ## :building_construction: Architecture
 
 Hexagonal architecture is also known as the ports and adapters architecture. It is an architectural pattern used for encapsulating domain logic and decoupling it from other implementation details, such as infrastructure or client requests.
